@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Scratch Coding Course for Kids</title>
+  <link rel="icon" href="assets/logop.png" type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Root Variables */
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #e0e7ff;
+      --background-color: #f9fafb;
+      --text-color: #333;
+      --font-family: Arial, sans-serif;
+      --transition: 0.3s ease;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: var(--font-family);
+      color: var(--text-color);
+      background-color: var(--background-color);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      background: var(--background-color);
+      padding: 120px 0;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+    }
+    .cta-button {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .cta-button:hover {
+      background-color: #4338ca;
+    }
+
+    /* Right Image */
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 2.5em;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    /* Highlights Section */
+    .highlights-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .highlight-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .highlight-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    .highlight-card h3 {
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .highlight-card p {
+      color: #666;
+    }
+
+    /* Instructors Section */
+    .instructors-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .instructor-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .instructor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    .instructor-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .instructor-card h3 {
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .instructor-card p {
+      color: #666;
+    }
+
+    /* Registration Section */
+    .registration {
+      text-align: center;
+      padding: 50px 0;
+    }
+    .registration p {
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      color: #555;
+    }
+    .payment-button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .payment-button:hover {
+      background-color: #388e3c;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer-links a {
+      color: var(--secondary-color);
+      margin: 0 15px;
+    }
+    .footer-socials a {
+      color: var(--secondary-color);
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+    .footer-logo img {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="nav-logo">
+        <img src="assets/logop.png" alt="LearninwithAK">
+      </div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#highlights">Course Highlights</a>
+        <a href="#why-coding">Why Coding</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-content">
+      <h1>Unlock Your Potential with Scratch Coding for Kids</h1>
+      <p>Empower young minds with creativity and problem-solving skills through our hands-on coding courses.</p>
+      <a href="#register" class="cta-button">Get Started</a>
+    </div>
+    <div class="hero-image">
+      <img src="assets/rocket.png" alt="Rocket Image">
+    </div>
+  </section>
+
+  <!-- Course Highlights -->
+  <section class="course-highlights" id="highlights">
+    <div class="container">
+      <h2 class="section-title">Course Highlights</h2>
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <h3>Duration</h3>
+          <p>8 weeks</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Structure</h3>
+          <p>6 Weekend Coding Classes</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Project Showcase</h3>
+          <p>Special project presentation with Adi.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Creator Program Access</h3>
+          <p>Join our exclusive creator program and showcase your projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Coding Section -->
+  <section class="why-coding" id="why-coding">
+    <div class="container">
+      <h2 class="section-title">Why Coding for Kids?</h2>
+      <p>Starting early with coding nurtures problem-solving and creative skills. Prepare young learners for the future with critical thinking and analysis.</p>
+    </div>
+  </section>
+
+  <!-- Meet Instructors Section -->
+  <section class="meet-instructors" id="instructors">
+    <div class="container">
+      <h2 class="section-title">Meet Our Instructors</h2>
+      <div class="instructors-grid">
+        <div class="instructor-card">
+          <img src="assets/adi.jpg" alt="Adi">
+          <h3>Adi</h3>
+          <p>Adi loves creating with code and inspiring young learners.</p>
+        </div>
+        <div class="instructor-card">
+          <img src="assets/priyanka.png" alt="Priyanka">
+          <h3>Priyanka</h3>
+          <p>Priyanka hosts creative spaces for young learners to shine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Section -->
+  <section class="registration" id="register">
+    <div class="container">
+      <h2>Reserve Your Spot Today!</h2>
+      <p>Register early to secure your child’s place.</p>
+      <a href="https://your-payment-link.com" class="payment-button" target="_blank" rel="noopener noreferrer">Register Now!</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logop.png" alt="LearninwithAK">
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#highlights">Course Highlights</a>
+        <a href="#why-coding">Why Coding</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#register">Register</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
