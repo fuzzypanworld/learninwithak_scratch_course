@@ -69,19 +69,55 @@
       font-weight: 600;
       color: var(--text-color);
     }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
 
     /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
       background: var(--background-color);
-      padding: 120px 0;
+      padding: 80px 0;
+      gap: 20px;
+      flex-wrap: wrap;
     }
     .hero-content {
       flex: 1;
+      text-align: center;
     }
     .hero h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 15px;
     }
     .hero p {
@@ -100,23 +136,21 @@
     .cta-button:hover {
       background-color: #4338ca;
     }
-
-    /* Right Image */
     .hero-image {
       flex: 1;
       text-align: center;
     }
     .hero-image img {
-      width: 80%;
+      width: 100%;
       max-width: 400px;
       height: auto;
     }
 
-    /* Section Headers */
-    .section-title {
-      font-size: 2.5em;
-      color: var(--primary-color);
-      margin-bottom: 20px;
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     /* Highlights Section */
@@ -130,7 +164,7 @@
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      width: 250px;
+      width: calc(50% - 20px);
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -145,11 +179,16 @@
     .highlight-card p {
       color: #666;
     }
+    @media (max-width: 768px) {
+      .highlight-card {
+        width: 100%;
+      }
+    }
 
     /* Instructors Section */
     .instructors-grid {
       display: flex;
-      gap: 40px;
+      gap: 20px;
       flex-wrap: wrap;
       justify-content: space-around;
     }
@@ -157,7 +196,7 @@
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      width: 250px;
+      width: calc(50% - 20px);
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
@@ -167,8 +206,8 @@
       box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     }
     .instructor-card img {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
@@ -180,11 +219,16 @@
     .instructor-card p {
       color: #666;
     }
+    @media (max-width: 768px) {
+      .instructor-card {
+        width: 100%;
+      }
+    }
 
     /* Registration Section */
     .registration {
       text-align: center;
-      padding: 50px 0;
+      padding: 40px 0;
     }
     .registration p {
       margin-bottom: 20px;
@@ -213,6 +257,9 @@
       padding: 20px 0;
       text-align: center;
     }
+    .footer-links {
+      margin-bottom: 10px;
+    }
     .footer-links a {
       color: var(--secondary-color);
       margin: 0 15px;
@@ -226,6 +273,17 @@
       height: 40px;
     }
   </style>
+  <script>
+    // Hamburger Menu Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -241,6 +299,11 @@
         <a href="#why-coding">Why Coding</a>
         <a href="#instructors">Instructors</a>
         <a href="#register">Register</a>
+      </div>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   </header>
@@ -295,25 +358,21 @@
     <div class="container">
       <h2 class="section-title">Meet Our Instructors</h2>
       <div class="instructors-grid">
-        <!-- Adi's Profile -->
         <div class="instructor-card">
           <img src="assets/adi.jpg" alt="Adi">
           <h3>Adi</h3>
           <p>Young Coder Inspiration: We’re led by Adi, a young coder whose recent project presentation went viral, inspiring thousands. His session kicks off the course, giving students a relatable peer-mentor and sparking their curiosity from day one.</p>
         </div>
-        <!-- Priyanka's Profile -->
         <div class="instructor-card">
           <img src="assets/priyanka.png" alt="Priyanka">
           <h3>Priyanka Modi</h3>
           <p>Learning Coach with a Vision: Priyanka Modi, a seasoned educator and passionate advocate for the future of learning, joins as a learning coach. Priyanka has been guiding her son Adi in his self-learning journey and hosting creative spaces for young creators.</p>
         </div>
-        <!-- Vineet's Profile -->
         <div class="instructor-card">
           <img src="assets/vineet.jpeg" alt="Vineet Shrivastava">
           <h3>Vineet Shrivastava</h3>
           <p>Experienced Coding Expert: We’ve partnered with Vineet Shrivastava, a Scratch and coding expert who has been working with young learners for over a decade. His sessions focus on giving kids the coding foundations in a fun and approachable way.</p>
         </div>
-        <!-- Tutor Support Profile -->
         <div class="instructor-card">
           <img src="assets/tutor.png" alt="On-Call Tutor">
           <h3>On-Call Tutor Support</h3>
